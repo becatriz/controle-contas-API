@@ -26,8 +26,8 @@ class AccountController{
 
   static async delete(req, res){
     try {
-      let deleteAccount = req.body;
-      res.status(200).json(await Account.findOneAndDelete(deleteAccount._id, deleteAccount));
+      let deleteAccountId = req.params.id;
+      res.status(200).json(await Account.findOneAndDelete(deleteAccountId));
     } catch (error) {
       console.log("[Account] : Excluir Conta => ERRO " + error);
       res.status(500).send("Erro ao excluir conta");
